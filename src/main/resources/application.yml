@@ -4,14 +4,25 @@ spring:
   jackson:
     serialization:
       write-dates-as-timestamps: false
-endpoints:
-  default:
+management:
+  info:
+    git:
+      mode: simple
+    env:
+      enabled: true
+  health:
+    defaults:
+      enabled: true
+    diskspace:
+      enabled: true
+    db:
+      enabled: true
+  jolokia:
     enabled: true
 ---
 spring:
   profiles: test
   datasource:
-    type: com.zaxxer.hikari.HikariDataSource
     driverClassName: org.h2.Driver
     username: worksheets
     password: sekritPazzword
